@@ -29,7 +29,7 @@ export default function scrabBag(startTally, played) {
     }
     // All played tiles’ types are in the game.
     // Initialize a tally of unplayed tiles’ types.
-    let currentTally = Object.assign({}, startTally);
+    const currentTally = Object.assign({}, startTally);
     // For each played tile:
     for (let j = 0; j < played.length; j++) {
       // Update the tally.
@@ -42,7 +42,7 @@ export default function scrabBag(startTally, played) {
     }
     // The tally is current.
     // Initialize the result.
-    let currentCounts = [];
+    const currentCounts = [];
     // For each tile type:
     for (const thisType of tileTypes) {
       // If it is the first type with its current count:
