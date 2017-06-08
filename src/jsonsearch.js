@@ -1,4 +1,18 @@
-import queryJson from 'query-json';
+const valueSearch = (object, value) => {
+  for (const key in Object.keys(object)) {
+    if (object[key] === value) {
+      return [key];
+    }
+    else {
+      if (typeof(object[key]) === 'object') {
+        const childKeys = valueSearch(object[key], value);
+        if (childKeys !== undefined) {
+          return [key].concat(childKeys);
+        }
+      }
+    }
+  }
+};
 
 /*
   Function declaration for jsonSearch and export statement making that
@@ -17,6 +31,6 @@ export default function jsonSearch(json, value) {
     && (typeof value === 'number' || typeof value === 'string')
   ) {
     // Return the path to the value.
-    return queryJson.search(json, value).join(' -> ');
+    return valueSearch(json, value).join(' -> ');
   }
 }
