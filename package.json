@@ -51,6 +51,9 @@
       "no-array-constructor": [
         "error"
       ],
+      "no-cond-assign": [
+        "off"
+      ],
       "no-const-assign": [
         "error"
       ],
