@@ -9,7 +9,7 @@ import XRegExp from 'xregexp';
     2. index is an integer.
 */
 export default function stringIndices(string, index) {
-  // If the arguments are superficially valid:
+  // If the arguments are valid:
   if (
     arguments.length === 2
     && typeof string === 'string'
