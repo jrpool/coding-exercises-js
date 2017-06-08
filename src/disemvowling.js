@@ -6,7 +6,7 @@
     1. string is a string composed only of letters a–z and spaces.
 */
 export default function disemvowling(string) {
-  // If the arguments are superficially valid:
+  // If the arguments are valid:
   if (
     arguments.length === 1
     && typeof string === 'string'
