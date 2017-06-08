@@ -7,26 +7,24 @@ describe('jsonSearch', function() {
     expect(jsonSearch).to.be.a('function');
   });
 
-  /* eslint-disable quotes */
-  const usa = {
-    "capital": "Washington",
-    "states": [
-      {
-        "name": "California",
-        "capital": "Sacramento",
-        "biggestCity": "Los Angeles",
-        "nth": 31
-      },
-      {
-        "name": "New York",
-        "capital": "Albany",
-        "biggestCity": "New York",
-        "nth": 11
-      }
-    ],
-    "hemisphere": "Western"
-  };
-  /* eslint-enable quotes */
+  const usa = '{\
+    "capital": "Washington",\
+    "states": [\
+      {\
+        "name": "California",\
+        "capital": "Sacramento",\
+        "biggestCity": "Los Angeles",\
+        "nth": 31\
+      },\
+      {\
+        "name": "New York",\
+        "capital": "Albany",\
+        "biggestCity": "New York",\
+        "nth": 11\
+      }\
+    ],\
+    "hemisphere": "Western"\
+  }';
 
   context('valid arguments', function() {
 
@@ -54,8 +52,8 @@ describe('jsonSearch', function() {
       expect(jsonSearch([usa], 'value')).to.be.undefined;
     });
 
-    it('correct for string as argument 0', function() {
-      expect(jsonSearch('usa', 'value')).to.be.undefined;
+    it('correct for object as argument 0', function() {
+      expect(jsonSearch({usa: true}, 'value')).to.be.undefined;
     });
 
     it('correct for array as argument 1', function() {
