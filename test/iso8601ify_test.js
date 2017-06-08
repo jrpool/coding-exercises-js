@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import iso8601ify from '../src/iso8601ify';
+import { iso8601ifyFile } from '../src/iso8601ify';
 
 describe('iso8601ify', function() {
 
@@ -92,6 +93,24 @@ describe('iso8601ify', function() {
 
     it('correct for argument 0 with non-Arabic numbers', function() {
       expect(iso8601ify(['1955-ix-24'])).to.be.undefined;
+    });
+
+  });
+
+  context('file of 1000 dates', function() {
+
+    const conversions = iso8601ifyFile('./data/iso8601ify/dates.txt');
+
+    it('batch conversion produces a string', function() {
+      expect(typeof conversions).to.equal('string');
+    });
+
+    it('conversion of 1000 dates is 11,000 characters long', function() {
+      expect(conversions.length).to.equal(11000);
+    });
+
+    it('first of 1000 conversions is correct', function() {
+      expect(conversions.slice(0, 10)).to.equal('1965-09-21');
     });
 
   });
