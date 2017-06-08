@@ -48,6 +48,21 @@
         "error",
         "unix"
       ],
+      "no-array-constructor": [
+        "error"
+      ],
+      "no-const-assign": [
+        "error"
+      ],
+      "no-new-object": [
+        "error"
+      ],
+      "no-var": [
+        "error"
+      ],
+      "prefer-const": [
+        "error"
+      ],
       "quotes": [
         "error",
         "single"

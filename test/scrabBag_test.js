@@ -1,8 +1,12 @@
 import { expect } from 'chai';
-import scrabBag from '../src/scrabBag';
-import englishTally from '../data/scrabBag/english';
+import scrabBag from '../src/scrabbag';
+import englishTally from '../data/scrabbag/english';
 
 describe('scrabBag', function() {
+
+  it('is a function', function() {
+    expect(scrabBag).to.be.a('function');
+  });
 
   context('valid arguments', function() {
 
@@ -44,11 +48,6 @@ describe('scrabBag', function() {
       expect(scrabBag(startTally, played)).to.be.undefined;
     });
 
-    it('correct for missing argument 1', function() {
-      const startTally = englishTally;
-      expect(scrabBag(startTally)).to.be.undefined;
-    });
-
     it('correct for string argument 0', function() {
       const startTally = 'A: 5, B, 3';
       const played = 'ABA';
@@ -59,6 +58,25 @@ describe('scrabBag', function() {
       const startTally = [['A', 5], ['B', 3]];
       const played = '01';
       expect(scrabBag(startTally, played)).to.be.undefined;
+    });
+
+    it('correct for missing argument 1', function() {
+      const startTally = englishTally;
+      expect(scrabBag(startTally)).to.be.undefined;
+    });
+
+    it('correct for excess arguments', function() {
+      const startTally = {
+        A: 4,
+        B: 1,
+        C: 2
+      };
+      const played = 'BAA';
+      expect(scrabBag(startTally, played, 'BAA')).to.be.undefined;
+    });
+
+    it('correct for no arguments', function() {
+      expect(scrabBag()).to.be.undefined;
     });
 
   });

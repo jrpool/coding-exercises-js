@@ -1,7 +1,11 @@
 import { expect } from 'chai';
-import stringIndices from '../src/stringIndices';
+import stringIndices from '../src/stringindices';
 
 describe('stringIndices', function() {
+
+  it('is a function', function() {
+    expect(stringIndices).to.be.a('function');
+  });
 
   context('valid arguments', function() {
 
@@ -80,6 +84,14 @@ describe('stringIndices', function() {
 
     it('correct for missing argument 1', function() {
       expect(stringIndices('this is wrong')).to.be.undefined;
+    });
+
+    it('correct for excess arguments', function() {
+      expect(stringIndices('this is wrong', 1, true)).to.be.undefined;
+    });
+
+    it('correct for no arguments', function() {
+      expect(stringIndices()).to.be.undefined;
     });
 
   });
