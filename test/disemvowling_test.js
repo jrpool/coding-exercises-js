@@ -50,19 +50,19 @@ describe('disemvowling', function() {
     });
 
     it('correct for argument 0 with capital letters', function() {
-      expect(disemvowling(['This is wrong'])).to.be.undefined;
+      expect(disemvowling('This is wrong')).to.be.undefined;
     });
 
     it('correct for argument 0 with punctuation', function() {
-      expect(disemvowling(['This is “wrong”'])).to.be.undefined;
+      expect(disemvowling('This is “wrong”')).to.be.undefined;
     });
 
     it('correct for argument 0 with digits', function() {
-      expect(disemvowling(['there are 120 learners'])).to.be.undefined;
+      expect(disemvowling('there are 120 learners')).to.be.undefined;
     });
 
     it('correct for argument 0 with non-Latin letters', function() {
-      expect(disemvowling(['it is a great место'])).to.be.undefined;
+      expect(disemvowling('it is a great место')).to.be.undefined;
     });
 
   });
