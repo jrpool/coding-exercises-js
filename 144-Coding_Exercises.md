@@ -88,7 +88,7 @@ Tests and correct implementations exist for the following exercises (it is recom
 - [ ] __30:__ 2. Lairotcaf
 - [ ] __30:__ 3. String Me Along
 - [ ] __30:__ 4. Braille
-- [ ] __30:__ 5. String Permutations
+- [x] __30:__ 5. String Permutations
 - [ ] __30:__ 6. Guess The Number
 - [ ] __30:__ 7. Finite State Gate
 
