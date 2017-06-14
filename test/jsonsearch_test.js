@@ -4,7 +4,7 @@ import jsonSearch from '../src/jsonsearch';
 describe('jsonSearch', function() {
 
   it('is a function', function() {
-    expect(jsonSearch).to.be.a('function');
+    expect(jsonSearch).a('function');
   });
 
   const usa = '{\
@@ -29,15 +29,15 @@ describe('jsonSearch', function() {
   context('valid arguments', function() {
 
     it('correct for top-level value', function() {
-      expect(jsonSearch(usa, 'Western')).to.equal('hemisphere');
+      expect(jsonSearch(usa, 'Western')).equal('hemisphere');
     });
 
     it('correct for second-level value', function() {
-      expect(jsonSearch(usa, 11)).to.equal('states -> 1 -> nth');
+      expect(jsonSearch(usa, 11)).equal('states -> 1 -> nth');
     });
 
     it('correct for value not in the object', function() {
-      expect(jsonSearch(usa, 'Lincoln')).to.equal('');
+      expect(jsonSearch(usa, 'Lincoln')).equal('');
     });
 
   });
@@ -45,35 +45,35 @@ describe('jsonSearch', function() {
   context('invalid arguments', function() {
 
     it('correct for number as argument 0', function() {
-      expect(jsonSearch(456, 456)).to.be.undefined;
+      expect(jsonSearch(456, 456)).undefined;
     });
 
     it('correct for array as argument 0', function() {
-      expect(jsonSearch([usa], 'value')).to.be.undefined;
+      expect(jsonSearch([usa], 'value')).undefined;
     });
 
     it('correct for object as argument 0', function() {
-      expect(jsonSearch({usa: true}, 'value')).to.be.undefined;
+      expect(jsonSearch({usa: true}, 'value')).undefined;
     });
 
     it('correct for array as argument 1', function() {
-      expect(jsonSearch(usa, ['New York'])).to.be.undefined;
+      expect(jsonSearch(usa, ['New York'])).undefined;
     });
 
     it('correct for object as argument 1', function() {
-      expect(jsonSearch(usa, {'capital': 'New York'})).to.be.undefined;
+      expect(jsonSearch(usa, {'capital': 'New York'})).undefined;
     });
 
     it('correct for missing argument 1', function() {
-      expect(jsonSearch(usa)).to.be.undefined;
+      expect(jsonSearch(usa)).undefined;
     });
 
     it('correct for excess arguments', function() {
-      expect(jsonSearch(usa, 11, true)).to.be.undefined;
+      expect(jsonSearch(usa, 11, true)).undefined;
     });
 
     it('correct for no arguments', function() {
-      expect(jsonSearch()).to.be.undefined;
+      expect(jsonSearch()).undefined;
     });
 
   });

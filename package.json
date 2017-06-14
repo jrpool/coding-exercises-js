@@ -15,14 +15,16 @@
     "babel-register": ">=6.24.1",
     "chai": ">=4.0.2",
     "chai-change": ">=2.1.2",
-    "eslint": ">=3.19.0",
+    "eslint": "^4.0.0",
+    "jsdoc": ">=3.4.3",
     "mocha": ">=3.4.2"
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register test/*.js",
+    "doc": "./node_modules/jsdoc/jsdoc.js src -r",
     "eslint": "./node_modules/eslint/bin/eslint.js src/ test/; exit 0",
-    "eslintfix": "./node_modules/eslint/bin/eslint.js --fix src/ test/; exit 0"
+    "eslintfix": "./node_modules/eslint/bin/eslint.js --fix src/ test/; exit 0",
+    "test": "mocha --compilers js:babel-register test/*.js"
   },
   "bugs": {
     "url": "https://github.com/jrpool/core-algorithms-cns/issues"
