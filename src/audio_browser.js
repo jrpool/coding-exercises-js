@@ -1,6 +1,11 @@
-/** Definitions of constants required by playAll. */
+/** @fileOverview Functions that play notes when audio.html is loaded.
+  * @author <a href="mailto: pool@stulta.com">Jonathan Pool</a>
+  * @version 0
+*/
 
-/** Notes. */
+// Definitions of constants required by playAll.
+
+// Notes.
 const notes = [
   ['Do4', 261.63],
   ['Re4', 293.66],
@@ -11,25 +16,27 @@ const notes = [
   ['Ti4', 493.88],
   ['Do5', 523.25],
 ];
-/** Duration of a period. */
+// Duration of a period.
 const period = 1000;
-// Create an audio context.
+// Audio context.
 const player = new AudioContext();
-// Create a fixed-note generator.
+// Fixed-note generator.
 const noteMaker = player.createOscillator();
-// Create a volume control.
+// Volume control.
 const volume = player.createGain();
-// Connect the note generator to it.
+// Connection between note generator and volume control.
 noteMaker.connect(volume);
-// Connect the volume control to the speaker.
+// Connection between volume control and speaker.
 volume.connect(player.destination);
-// Set the volume.
+// Volume.
 volume.gain.value = 0.01;
-// Start the output.
+// Start the fixed-note generator.
 noteMaker.start();
-/**
+
+/*
   Function that sets the frequency and, after the period, executes itself for
-  the next frequency, if there is one.
+  the next frequency, if there is one, and, if no frequency remains,
+  executes itself for a chord.
 */
 const playAll = (noteIndex) => {
   noteMaker.frequency.value = notes[noteIndex][1];
@@ -45,9 +52,11 @@ const playAll = (noteIndex) => {
     period * 0.75
   );
 };
-// Execute it, starting with the first note.
+
+// Execution of playAll, starting with first note.
 playAll(0);
-/** Function that plays chords. */
+
+// Function that plays chords.
 const chord = () => {
   // Create 2 more fixed-note generators.
   const noteMaker2 = player.createOscillator();
@@ -72,5 +81,3 @@ const chord = () => {
     period * 2
   );
 };
-// Execute it, starting with the first note.
-playAll(0);

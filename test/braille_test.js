@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-//import braille from '../src/braille';
+import braille from '../src/braille';
 
-describe.skip('braille', function() {
+describe('braille', function() {
 
   it('is a function', function() {
     expect(braille).a('function');
@@ -9,73 +9,154 @@ describe.skip('braille', function() {
 
   context('valid arguments', function() {
 
-    it('correct for toy language', function() {
-      const startTally = {
-        A: 4,
-        B: 1,
-        C: 2
-      };
-      const played = 'BAA';
-      expect(braille(startTally, played)).eql('2: A, C\n0: B\n');
+    it('correct for 1 letter', function() {
+      const dots = [
+        'O.',
+        '..',
+        '..'
+      ];
+      expect(braille(dots)).equal('a');
     });
 
-    it('correct for English', function() {
-      const startTally = englishTally;
-      const played = 'BOOKSTORE';
-      expect(braille(startTally, played)).eql(
-        '11: E\n9: A, I\n6: N\n5: O, R, T\n4: D, L, U\n3: G, S\n2: C, F, H, M, P, V, W, Y, _\n1: B, J, Q, X, Z\n0: K\n'
-      );
+    it('3 letters', function() {
+      const dots = [
+        'O. OO .O',
+        '.. .O OO',
+        '.. O. O.'
+      ];
+      expect(braille(dots)).equal('ant');
     });
 
   });
 
   context('invalid arguments', function() {
 
-    it('correct for excess tiles in toy language', function() {
-      const startTally = {
-        A: 4,
-        B: 1,
-        C: 2
+    it('no letters', function() {
+      const dots = [
+        '',
+        '',
+        ''
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('nonexistent letters', function() {
+      const dots = [
+        '.. OO .O',
+        '.. .O OO',
+        '.. O. O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('unequally long rows', function() {
+      const dots = [
+        'O. OO .O',
+        '.. .O',
+        '.. O. O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('equally but invalidly long rows', function() {
+      const dots = [
+        'O. OO .',
+        '.. .O 0',
+        '.. O. O'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('missing spaces', function() {
+      const dots = [
+        'O.OO',
+        '...O',
+        '..O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('excess spaces', function() {
+      const dots = [
+        'O.  OO  .O',
+        '..  .O  OO',
+        '..  O.  O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('leading spaces', function() {
+      const dots = [
+        ' O. OO .O',
+        ' .. .O OO',
+        ' .. O. O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('trailing spaces', function() {
+      const dots = [
+        'O. OO .O ',
+        '.. .O OO ',
+        '.. O. O. '
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('invalid dot symbols', function() {
+      const dots = [
+        '.. OO .O',
+        '.. .0 OO',
+        '.. O. O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('too few elements', function() {
+      const dots = [
+        'O. OO .O',
+        '.. O. O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('too many elements', function() {
+      const dots = [
+        'O. OO .O',
+        '.. .O OO',
+        '.. O. O.',
+        'O. OO .O',
+        '.. .O OO',
+        '.. O. O.'
+      ];
+      expect(braille(dots)).undefined;
+    });
+
+    it('string argument', function() {
+      const dots = 'O. OO .O\n.. .O OO\n.. O. O.';
+      expect(braille(dots)).undefined;
+    });
+
+    it('object argument', function() {
+      const dots = {
+        top: 'O. OO .O',
+        mid: '.. .O OO',
+        low: '.. O. O.'
       };
-      const played = 'BAAB';
-      expect(braille(startTally, played)).undefined;
+      expect(braille(dots)).undefined;
     });
 
-    it('correct for excess tiles in English', function() {
-      const startTally = englishTally;
-      const played = 'BOOKKEEPER';
-      expect(braille(startTally, played)).undefined;
-    });
-
-    it('correct for string argument 0', function() {
-      const startTally = 'A: 5, B, 3';
-      const played = 'ABA';
-      expect(braille(startTally, played)).undefined;
-    });
-
-    it('correct for array argument 0', function() {
-      const startTally = [['A', 5], ['B', 3]];
-      const played = '01';
-      expect(braille(startTally, played)).undefined;
-    });
-
-    it('correct for missing argument 1', function() {
-      const startTally = englishTally;
-      expect(braille(startTally)).undefined;
-    });
-
-    it('correct for excess arguments', function() {
-      const startTally = {
-        A: 4,
-        B: 1,
-        C: 2
-      };
-      const played = 'BAA';
-      expect(braille(startTally, played, 'BAA')).undefined;
-    });
-
-    it('correct for no arguments', function() {
+    it('missing argument', function() {
       expect(braille()).undefined;
+    });
+
+    it('excess arguments', function() {
+      const dots = [
+        'O. OO .O',
+        '.. .O OO',
+        '.. O. O.'
+      ];
+      expect(braille(dots, true)).undefined;
     });
 
   });

@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "babel src -d lib",
-    "doc": "./node_modules/jsdoc/jsdoc.js src -r",
+    "doc": "./node_modules/jsdoc/jsdoc.js src",
     "eslint": "./node_modules/eslint/bin/eslint.js src/ test/; exit 0",
     "eslintfix": "./node_modules/eslint/bin/eslint.js --fix src/ test/; exit 0",
     "test": "mocha --compilers js:babel-register test/*.js"
