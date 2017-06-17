@@ -1,11 +1,6 @@
-/** @fileOverview Conversion of a representation of Braille to ASCII.
-* @author Jonathan Pool <pool@stulta.com>
-* @version 0
-*/
+// Conversion of a representation of Braille to ASCII.
 
-/** @module*/
-
-/**
+/*
  * Function that performs the conversion.
  * Enforced argument requirements:
  *   0. Argument count is 1.

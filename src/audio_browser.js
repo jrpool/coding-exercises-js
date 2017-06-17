@@ -1,9 +1,4 @@
-/** @fileOverview Functions that play notes when audio.html is loaded.
-  * @author Jonathan Pool <pool@stulta.com>
-  * @version 0
-*/
-
-/** @module*/
+// Functions that play notes when audio.html is loaded.
 
 // Definitions of constants required by playAll.
 

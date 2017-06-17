@@ -6,6 +6,7 @@
   "private": false,
   "version": "0.0.0",
   "dependencies": {
+    "readline-sync": ">=1.4.7",
     "xregexp": ">=3.2.0"
   },
   "devDependencies": {
@@ -53,6 +54,9 @@
         "error"
       ],
       "no-cond-assign": [
+        "off"
+      ],
+      "no-console": [
         "off"
       ],
       "no-const-assign": [
