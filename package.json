@@ -16,14 +16,13 @@
     "chai": ">=4.0.2",
     "chai-change": ">=2.1.2",
     "eslint": "^4.0.0",
-    "jsdoc": ">=3.4.3",
     "mocha": ">=3.4.2"
   },
   "scripts": {
     "build": "babel src -d lib",
     "doc": "./node_modules/jsdoc/jsdoc.js src",
-    "eslint": "./node_modules/eslint/bin/eslint.js src/ test/; exit 0",
-    "eslintfix": "./node_modules/eslint/bin/eslint.js --fix src/ test/; exit 0",
+    "lint": "./node_modules/eslint/bin/eslint.js src/ test/; exit 0",
+    "lintfix": "./node_modules/eslint/bin/eslint.js --fix src/ test/; exit 0",
     "test": "mocha --compilers js:babel-register test/*.js"
   },
   "bugs": {

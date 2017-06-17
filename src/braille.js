@@ -1,13 +1,20 @@
-/** @fileOverview Function that converts a representation of Braille to ASCII.
+/** @fileOverview Conversion of a representation of Braille to ASCII.
+* @author Jonathan Pool <pool@stulta.com>
+* @version 0
+*/
 
-  Enforced argument requirements:
-   0. Argument count is 1.
-   1. dots is an array of 3 strings that each:
-     1.1. are equal in length.
-     1.2. consist of 1 or more single-space-delimited 2-dot rows.
-     1.3. represent the top, middle, and bottom rows of Braille text.
-     1.4. represent a raised dot with “O” and a lowered dot with “.”.
-     1.5. are limited to the single letters a–z.
+/** @module*/
+
+/**
+ * Function that performs the conversion.
+ * Enforced argument requirements:
+ *   0. Argument count is 1.
+ *   1. dots is an array of 3 strings that each:
+ *     1.1. are equal in length.
+ *     1.2. consist of 1 or more single-space-delimited 2-dot rows.
+ *     1.3. represent the top, middle, and bottom rows of Braille text.
+ *     1.4. represent a raised dot with “O” and a lowered dot with “.”.
+ *     1.5. are limited to the single letters a–z.
 */
 export default function braille(dots) {
   // If the lines are superficially valid:

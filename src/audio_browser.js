@@ -1,7 +1,9 @@
 /** @fileOverview Functions that play notes when audio.html is loaded.
-  * @author <a href="mailto: pool@stulta.com">Jonathan Pool</a>
+  * @author Jonathan Pool <pool@stulta.com>
   * @version 0
 */
+
+/** @module*/
 
 // Definitions of constants required by playAll.
 

@@ -29,7 +29,7 @@ describe('parens', function() {
       expect(parens(string)).equal('akvo (water (H₂O))');
     });
 
-    it('correct for balanced mustiply nested parentheses', function() {
+    it('correct for balanced multiply nested parentheses', function() {
       const string = 'akvo (((water (H₂O))))';
       expect(parens(string)).equal('akvo (water (H₂O))');
     });
