@@ -40,6 +40,18 @@ directories by executing:
 Example of portion of output from `npm test`:
 
 ```
+stringPermutations
+  ✓ is a function
+  valid arguments
+    ✓ correct for nonblank string
+    ✓ correct for single repeated character
+    ✓ correct for blank string
+    ✓ correct for non-Latin script
+  invalid arguments
+    ✓ correct for number as argument
+    ✓ correct for array as argument
+    ✓ correct for excess arguments
+    ✓ correct for no arguments
 ```
 
 ## Exercises
