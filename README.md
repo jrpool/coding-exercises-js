@@ -33,7 +33,7 @@ functions … to Mocha is discouraged”.
 4. In the local directory, perform linting on the files in the `src` and `test`
 directories by executing:
 
-    npm run eslint
+    npm run lint
 
 ## Usage and Examples
 
