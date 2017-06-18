@@ -27,9 +27,9 @@
     "test": "mocha --compilers js:babel-register test/*.js"
   },
   "bugs": {
-    "url": "https://github.com/jrpool/core-algorithms-cns/issues"
+    "url": "https://github.com/jrpool/coding-exercises-js/issues"
   },
-  "homepage": "https://github.com/jrpool/core-algorithms-cns#readme",
+  "homepage": "https://github.com/jrpool/coding-exercises-js#readme",
   "eslintConfig": {
     "env": {
       "node": true,
